@@ -1,0 +1,7 @@
+[program:retro-router]
+directory=/var/www/html
+command=/var/www/html/env/bin/gunicorn app:app -b localhost:8000
+autostart=true
+autorestart=true
+stderr_logfile=/var/log/retro-router/retro-router.err.log
+stdout_logfile=/var/log/retro-router/retro-router.out.log

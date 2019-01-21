@@ -1,6 +1,6 @@
 {
-  "name": "quick-route",
-  "version": "0.1.0",
+  "name": "retro-router",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -9,24 +9,28 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
-    "vue": "^2.5.16",
-    "vue-class-component": "^6.0.0",
-    "vue-property-decorator": "^7.0.0",
-    "vue-router": "^3.0.1",
-    "vuex": "^3.0.1"
+    "@types/node-fetch": "^2.1.4",
+    "node-fetch": "^2.3.0",
+    "vue": "^2.5.22",
+    "vue-class-component": "^6.3.2",
+    "vue-property-decorator": "^7.3.0",
+    "vue-router": "^3.0.2",
+    "vuetify": "^1.4.2",
+    "vuex": "^3.1.0"
   },
   "devDependencies": {
-    "@types/jest": "^23.1.4",
-    "@vue/cli-plugin-babel": "^3.0.0-rc.5",
-    "@vue/cli-plugin-typescript": "^3.0.0-rc.5",
-    "@vue/cli-plugin-unit-jest": "^3.0.0-rc.5",
-    "@vue/cli-service": "^3.0.0-rc.5",
-    "@vue/test-utils": "^1.0.0-beta.20",
+    "@types/jest": "^23.3.12",
+    "@vue/cli-plugin-babel": "^3.3.0",
+    "@vue/cli-plugin-typescript": "^3.3.0",
+    "@vue/cli-plugin-unit-jest": "^3.3.0",
+    "@vue/cli-service": "^3.3.0",
+    "@vue/test-utils": "^1.0.0-beta.28",
     "babel-core": "7.0.0-bridge.0",
-    "node-sass": "^4.9.0",
-    "sass-loader": "^7.0.1",
-    "ts-jest": "^23.0.0",
-    "vue-template-compiler": "^2.5.16"
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.1.0",
+    "ts-jest": "^23.10.5",
+    "typescript": "^3.2.4",
+    "vue-template-compiler": "^2.5.22"
   },
   "postcss": {
     "plugins": {

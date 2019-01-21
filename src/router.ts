@@ -1,21 +1,27 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Home from './views/Home.vue';
-import About from './views/About.vue';
+import Plasma from './views/Plasma.vue';
+import Capture from './views/Capture.vue';
+import Crt from './views/Crt.vue';
 
 Vue.use(Router);
 
 export default new Router({
   routes: [
     {
-      path: '/',
-      name: 'home',
-      component: Home,
+      path: '/plasma',
+      name: 'plasma',
+      component: Plasma,
     },
     {
-      path: '/about',
-      name: 'about',
-      component: About,
+      path: '/capture',
+      name: 'capture',
+      component: Capture,
+    },
+    {
+      path: '/crt',
+      name: 'crt',
+      component: Crt,
     },
   ],
 });
