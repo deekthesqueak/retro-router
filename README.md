@@ -15,6 +15,8 @@ This is a collection of scripts designed to control analog and digital video swi
 
 ### Wiringing Digiram ###
 
+![Wiring Diagram](/docs/wiring_diagram.png)
+
 The diagram above shows how all the video cables are connected. Here is what it looks like with some cable management.
 
 All cables going into the Extron Crosspoint are the sytem specific HD Retrovision cables with a 6ft Male-to-Female extension, terminated into [75ohm RCA to BNC](https://www.digikey.com/product-detail/en/cinch-connectivity-solutions-aim-cambridge/CPAD517/J10099-ND/414256). Audio cables are terminated into [Phoenix to RCA Adapter](https://db-electronics.ca/2018/04/23/open-source-extron-phoenix-audio-adapter-pcbs/)
