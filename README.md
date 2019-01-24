@@ -17,15 +17,13 @@ This is a collection of scripts designed to control analog and digital video swi
 
 ![Wiring Diagram](/docs/wiring_diagram.png)
 
-The diagram above shows how all the video cables are connected. Here is what it looks like with some cable management.
-
-All cables going into the Extron Crosspoint are the sytem specific HD Retrovision cables with a 6ft Male-to-Female extension, terminated into [75ohm RCA to BNC](https://www.digikey.com/product-detail/en/cinch-connectivity-solutions-aim-cambridge/CPAD517/J10099-ND/414256). Audio cables are terminated into [Phoenix to RCA Adapter](https://db-electronics.ca/2018/04/23/open-source-extron-phoenix-audio-adapter-pcbs/)
+Cables going into the Extron Crosspoint are either system specific HD Retrovision (blue) or Nintendo Wii/WiiU (green) cables with a 6ft HD Retrovision Male-to-Female extension, terminated into [75ohm RCA to BNC](https://www.digikey.com/product-detail/en/cinch-connectivity-solutions-aim-cambridge/CPAD517/J10099-ND/414256). Audio cables are terminated into [Phoenix to RCA Adapter](https://db-electronics.ca/2018/04/23/open-source-extron-phoenix-audio-adapter-pcbs/)
 
 ## Software ##
 
 ### Device Control ###
 
-The hareware API is built upon [flask](http://flask.pocoo.org/) to create a simple interfacting with [pyserial](https://github.com/pyserial/pyserial) to send commands to the TV, HDMI Switch, HDMI Matrix, and Extron Crosspoint
+The hardware API is built upon [flask](http://flask.pocoo.org/) to create a simple interface with [pyserial](https://github.com/pyserial/pyserial) to send commands to the TV, HDMI Switch, HDMI Matrix, and Extron Crosspoint
 
 To control the OSSC LIRC is used with the USB IR Toy to send IR [remote commands](http://junkerhq.net/xrgb/index.php?title=OSSC_LIRC_Script).
 
@@ -45,18 +43,26 @@ The UI was written using Vue with the Vueitfy material framework. Logic was writ
 
 Images of the various systems come from the great work done by [Evan Amos](https://twitter.com/VanamoMedia) whose work can be found at https://commons.wikimedia.org/wiki/User:Evan-Amos
 
+Below are some views of the app running in Firefox on an Android phone.
+
+To switch to a source simply tap the system you want from the list.
+
+Sources that case be upscaled will have a toggle when either can be selected.
 ![Analog & Digital](/docs/analog_and_digital_video.png)
 
+Displays like a CRT will only allow the selection of analog sources
 ![Analog](/docs/analog_only.png)
 
+While a capture card will allow only digital sources which include upscaled analog sources
 ![Digital](/docs/digital_only.png)
 
+Different sources (TV, CRT, Capture) can all be selected from the side menu
 ![Source Selection](/docs/source_selection.png)
 
 ### Deployment Notes ###
 
 ``` 
-Python Depenencies
+Python Dependencies
 cp retroRouter.py /var/www/html/
 cp requirements.txt /var/www/html/
 
@@ -92,8 +98,9 @@ sudo service lircd restart
 ### Limitations ###
 * No authentication. Not designed for public IPs.
 * Hard coded control logic. To work around this an abstraction for a display, switch, matrix, and upscaler would be needed.
-* No querying of control hardware state for dynamic UI updates. The 8x1 switch does not have the ablitiy to query which channel is active or which are even powered on.
+* No querying of control hardware state for dynamic UI updates. The 8x1 switch does not have the ability to query which channel is active or which are even powered on.
 
 ### Planned Features ###
 * OSSC profile selection per system
-* Include more system icons vartions from Evan's work
+* Include more system icon variations from Evan's work
+* TV specific functions (Turn on/off, mute, vol up/down, etc)
