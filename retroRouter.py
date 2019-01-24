@@ -25,6 +25,14 @@ def matrixInputOutput(input: int, output: int):
 
     return bytes(commands)
 
+def matrixBeep(beep):
+    beepCode =  0x0f if beep else 0xf0
+    commands = [0xa5, 0x5b, 0x06, 0x01, beepCode, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00]
+    checksum = 0x100 - 0x07 - beepCode
+    commands.append(checksum)
+
+    return bytes(commands)
+
 # HDMI 8x1 Switch
 # https://www.monoprice.com/product?c_id=101&cp_id=10110&cs_id=1011002&p_id=4067&seq=1&format=2
 # Make: Monoprice
@@ -77,6 +85,17 @@ def hdmi(input):
 @app.route('/matrix/<int:input>/<int:output>', methods=['GET'])
 def matrix(input, output):
     sequence = matrixInputOutput(input, output)
+    hdmiMatrix.write(sequence)
+
+    return jsonify(success = True)
+
+@app.route('/matrix/beep/<state>', methods=['GET'])
+def beep(state):
+    if (state == 'on'):
+        sequence = matrixBeep(True)
+    if (state == 'off'):
+        sequence = matrixBeep(False)
+
     hdmiMatrix.write(sequence)
 
     return jsonify(success = True)
